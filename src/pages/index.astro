@@ -1,131 +1,365 @@
 ---
-import { getCollection } from "astro:content";
+title: "Portfolio";
+import { Tweet, Vimeo, YouTube } from "astro-embed";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import LinkButton from "@components/LinkButton.astro";
-import Hr from "@components/Hr.astro";
-import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
-import getSortedPosts from "@utils/getSortedPosts";
-import { SOCIALS } from "@config";
-
-const posts = await getCollection("blog");
-
-const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
-
-const socialCount = SOCIALS.filter(social => social.active).length;
 ---
 
 <Layout>
-  <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>Mingalaba</h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
-        </svg>
-        <span class="sr-only">RSS Feed</span>
-      </a>
+      <h1>Loi Do/ Video editor</h1>
+      <div class="text-xl font-bold">
+        <p>
+          WhatsApp: <a
+            href="https://api.whatsapp.com/send?phone=84368391658"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-lg font-bold decoration-dashed hover:underline"
+            >+84 368391658</a
+          >
+        </p>
+        <p>
+          Telegram: <a
+            href="https://t.me/+84368391658"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-lg font-bold decoration-dashed hover:underline"
+            >+84 368391658</a
+          >
+        </p>
+      </div>
+      <Socials />
+      <div>
+        <a href="#travel">
+          <button
+            id="button-heading"
+            type="button"
+            class="mb-2 me-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >Travel</button
+          >
+        </a>
+        <a href="#documentary">
+          <button
+            id="button-heading"
+            type="button"
+            class="mb-2 me-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >Documentary</button
+          >
+        </a>
+        <a href="#boxing">
+          <button
+            id="button-heading"
+            type="button"
+            class="mb-2 me-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >Boxing</button
+          >
+        </a>
+        <a href="#car">
+          <button
+            id="button-heading"
+            type="button"
+            class="mb-2 me-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >Car</button
+          >
+        </a>
+        <a href="#animation">
+          <button
+            id="button-heading"
+            type="button"
+            class="mb-2 me-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >Animation</button
+          >
+        </a>
+        <a href="#talking-head">
+          <button
+            id="button-heading"
+            type="button"
+            class="mb-2 me-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >Talking-head</button
+          >
+        </a>
+        <a href="#shorts">
+          <button
+            id="button-heading"
+            type="button"
+            class="mb-2 me-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >Shorts</button
+          >
+        </a>
 
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
-      </p>
-      <p>
-        Read the blog posts or check
-        <LinkButton
-          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
-      </p>
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
+        <a href="#music">
+          <button
+            id="button-heading"
+            type="button"
+            class="mb-2 me-2 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            >Music</button
+          >
+        </a>
+      </div>
     </section>
-
-    <Hr />
-
-    {
-      featuredPosts.length > 0 && (
-        <>
-          <section id="featured">
-            <h2>Featured</h2>
-            <ul>
-              {featuredPosts.map(({ data, slug }) => (
-                <Card
-                  href={`/posts/${slug}/`}
-                  frontmatter={data}
-                  secHeading={false}
-                />
-              ))}
-            </ul>
-          </section>
-          {recentPosts.length > 0 && <Hr />}
-        </>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts">
-          <h2>Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              ({ data, slug }, index) =>
-                index < 4 && (
-                  <Card
-                    href={`/posts/${slug}/`}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
-                )
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="all-posts-btn-wrapper">
-      <LinkButton href="/posts/">
-        All Posts
-        <svg xmlns="http://www.w3.org/2000/svg"
-          ><path
-            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-          ></path>
-        </svg>
-      </LinkButton>
-    </div>
+    <section id="travel" class="mb-8 mt-8">
+      <h2 id="travel" class="title mb-4 text-2xl font-bold">Travel</h2>
+      <div style="padding:50% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952803807?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Ho Chi Minh City ｜ phothrottle"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952798415?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Da Nang ｜  Escaping Comfort Zone"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952798464?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Ha Giang Loop ｜  Escaping Comfort Zone"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:42.55% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952790718?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Walking across Vietnam trailer"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/954290316?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="travel-trial-v1.1-h265"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+    </section>
+    <section id="documentary" class="mb-8 mt-8">
+      <h2 class="title mb-4 text-2xl font-bold">Documentary</h2>
+      <div style="padding:50% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/955411203?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Edward Snowden speaks about government transparency at Sam Adams award"
+        ></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+    </section>
+    <section id="boxing" class="mb-8 mt-8">
+      <h2 class="title mb-4 text-2xl font-bold">Boxing</h2>
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952820912?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="On the aftermath of Anthony Joshua vs Francis Ngannou fight v1.0.1 [3Gapj9M-smY]"
+        ></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952821413?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Boxing： The Hardest Part｜Boxing Saigon"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+    </section>
+    <section id="car" class="mb-8 mt-8">
+      <h2 id="car" class="title mb-4 text-2xl font-bold">Car</h2>
+      <div style="padding:50% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952798897?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="2024 Mazda CX-90 Plug-in Hybrid Electric SUV ｜ Sleepy Garage"
+        ></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:50% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952801928?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Daikoku Parking Area： Cars and Coffee ｜ phothrottle"
+        ></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:41.89% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952819738?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Untitled"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+    </section>
+    <section id="Animation" class="mb-8 mt-8">
+      <h2 id="animation" class="title mb-4 text-2xl font-bold">Animation</h2>
+      <div style="padding:50% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952757183?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false&autoplay=1&loop=1&muted=1&controls=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Saigon, Vietnamese Coffee ｜ markdieu v1.2"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:50% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952757173?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false&autoplay=1&loop=1&muted=1&controls=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Saigon, Vietnamese Coffee ｜ markdieu v1.2"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:95% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952764926?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false&autoplay=1&loop=1&muted=1&controls=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Saigon, Vietnamese Coffee ｜ markdieu v1.2"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+    </section>
+    <section id="talking-head" class="mb-8 mt-8">
+      <h2 id="talking-head" class="title mb-4 text-2xl font-bold">
+        Talking-head
+      </h2>
+      <div style="padding:50% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952802375?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Director Cut @zsomtor"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:50% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952802710?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Kill Your Demons"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952822049?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Danny Ruderman - Introduction ｜ Re-editing v1.1 @dannyruderman"
+        ></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:50% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952822218?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Tal talking head intro v1.1 [9ECeA6-Q-NI]"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+    </section>
+    <section id="shorts" class="mb-8 mt-8">
+      <h2 id="shorts" class="title mb-4 text-2xl font-bold">Shorts</h2>
+      <div style="padding:100% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952764926?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Saigon, Vietnamese Coffee ｜ markdieu v1.2"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:100% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952786008?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Saigon, Vietnamese Coffee ｜ markdieu v1.2"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:100% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952786450?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Saigon, Vietnamese Coffee ｜ markdieu v1.2"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:100% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952787923?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Saigon, Vietnamese Coffee ｜ markdieu v1.2"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:100% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952787770?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Saigon, Vietnamese Coffee ｜ markdieu v1.2"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:100% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952795490?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Join the Skinny Hippie family v2"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:100% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952991886?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Join the Skinny Hippie family v2"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+    </section>
+    <section id="music" class="mb-8 mt-8">
+      <h2 id="music" class="title mb-4 text-2xl font-bold">Music</h2>
+      <div style="padding:50% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952793766?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Get Up - NewJeans ｜ Cover"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+      <div style="padding:50% 0 0 0;position:relative;">
+        <iframe
+          src="https://player.vimeo.com/video/952794564?badge=0&autopause=0&portrait=false&title=false&byline=false&badge=false"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          title="Anh Là Ngoại Lệ Của Em"></iframe>
+      </div><script src="https://player.vimeo.com/api/player.js"></script>
+    </section>
+    <section>
+      <a href="/contact">
+        <button
+          type="button"
+          id="shake-button"
+          class="mb-8 me-2 ml-2 rounded-lg bg-green-700 px-5 py-2.5 text-5xl font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+          >Let's work together</button
+        >
+      </a>
+    </section>
   </main>
-
-  <Footer />
 </Layout>
 
 <style>
-  /* ===== Hero Section ===== */
   #hero {
     @apply pb-6 pt-8;
   }
@@ -139,25 +373,116 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
   }
   #hero p {
-    @apply my-2;
-  }
-  .social-wrapper {
-    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
-  }
-  .social-links {
-    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+    @apply my-4;
   }
 
-  /* ===== Featured & Recent Posts Sections ===== */
-  #featured,
-  #recent-posts {
-    @apply pb-6 pt-12;
+  #shake {
+    animation: tilt-n-move-shaking-avata 1.5s infinite;
   }
-  #featured h2,
-  #recent-posts h2 {
-    @apply text-2xl font-semibold tracking-wide;
+
+  #shake-button:hover {
+    animation: tilt-n-move-shaking 0.25s infinite;
   }
-  .all-posts-btn-wrapper {
-    @apply my-8 text-center;
+
+  #button-heading:focus {
+    animation: horizontal-shaking 0.01s infinite;
+  }
+
+  #af {
+    margin-bottom: -60px;
+  }
+
+  #af:hover {
+    animation: horizontal-shaking 0.001s infinite;
+  }
+
+  @keyframes tilt-n-move-shaking-avata {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      filter: blur(0.1px);
+    }
+    25% {
+      transform: translate(2px, 2px) rotate(2deg);
+      filter: blur(0.25px);
+    }
+    50% {
+      transform: translate(0, 0) rotate(0eg);
+      filter: blur(0.5px);
+    }
+    75% {
+      transform: translate(-2px, 2px) rotate(-2deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+      filter: blur(1px);
+    }
+  }
+
+  @keyframes tilt-n-move-shaking {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      filter: blur(0.1px);
+    }
+    25% {
+      transform: translate(5px, 5px) rotate(5deg);
+      filter: blur(0.25px);
+    }
+    50% {
+      transform: translate(0, 0) rotate(0eg);
+      filter: blur(0.5px);
+    }
+    75% {
+      transform: translate(-5px, 5px) rotate(-5deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+      filter: blur(1px);
+    }
+  }
+
+  @keyframes horizontal-shaking {
+    0% {
+      transform: translateX(0);
+      filter: blur(1px);
+    }
+    25% {
+      transform: translateX(10px);
+      filter: blur(2px);
+    }
+    50% {
+      transform: translateX(-10px);
+      filter: blur(3px);
+    }
+    75% {
+      transform: translateX(10px);
+      filter: blur(4px);
+    }
+    100% {
+      transform: translateX(0);
+      filter: blur(5px);
+    }
+  }
+
+  @keyframes horizontal-shaking {
+    0% {
+      transform: translateX(0);
+      filter: blur(1px);
+    }
+    25% {
+      transform: translateX(1px);
+      filter: blur(2px);
+    }
+    50% {
+      transform: translateX(-1px);
+      filter: blur(3px);
+    }
+    75% {
+      transform: translateX(1px);
+      filter: blur(4px);
+    }
+    100% {
+      transform: translateX(0);
+      filter: blur(5px);
+    }
   }
 </style>
